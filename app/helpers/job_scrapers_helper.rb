@@ -1,0 +1,2 @@
+module JobScrapersHelper
+end
