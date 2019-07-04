@@ -23,8 +23,6 @@ class JobScrapersController < ApplicationController
           end
         end
         counter += 50
-        puts "COUNTER => #{counter}"
-        puts "DUPLICATES => #{duplicates}"
       end
     end
   end
