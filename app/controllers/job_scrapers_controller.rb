@@ -16,9 +16,8 @@ class JobScrapersController < ApplicationController
         html = Nokogiri::HTML(doc)
         duplicates = 0
         html.css('div .recJobLoc').each do |div|
-          # if JobLocation.unique_id?(div.attributes["id"].value)
           if !JobLocation.add_data(div.attributes['id'].value, div.attributes['data-rc-loc'].value)
-            # Count duplicates in a row. Stop if 10 found in a row.
+            # Count duplicates in a row. Stop if 50 found in a row.
             duplicates += 1
             keep_running = false if duplicates >= 50
           end
